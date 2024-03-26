@@ -189,159 +189,7 @@ void main() {
     });
   });
 }
-
 ```
-
-# Examples - WidgetTesting - (SmartBlanket)
-## Create a class to test
-This class create a splashScreen with a text in the middle and a gradient container
-```ruby
-import 'dart:async';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_background_service/flutter_background_service.dart';
-import 'package:smart_blanket/utils/widgets/notification_count.dart';
-import 'package:smart_blanket/views/connection_screen.dart';
-import 'package:google_fonts/google_fonts.dart';
-import '../controllers/bluetooth_scan_controller.dart';
-
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key, required this.notificationCountProvider});
-
-  final NotificationCountProvider notificationCountProvider;
-
-  @override
-  State<SplashScreen> createState() {
-    return _SplashScreenState();
-  }
-}
-
-class _SplashScreenState extends State<SplashScreen>
-    with SingleTickerProviderStateMixin, WidgetsBindingObserver {
-  late Timer _timer;
-
-  @override
-  void initState() {
-    super.initState();
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
-    WidgetsBinding.instance.addObserver(this);
-    getPermissions();
-    _timer = Timer(const Duration(seconds: 2), () {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(
-          builder: (_) => ConnectionScreen(
-            notificationCountProvider: widget.notificationCountProvider,
-            blankets: const [],
-          ),
-        ),
-      );
-    });
-  }
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-
-      print("didChangeAppLifecycleState");
-      print(state);
-      switch (state) {
-        case AppLifecycleState.resumed:
-          print("app in resumed");
-          FlutterBackgroundService().invoke("setAsBackground");
-          break;
-        case AppLifecycleState.inactive:
-          print("app in inactive");
-          FlutterBackgroundService().invoke("setAsForeground");
-          break;
-        case AppLifecycleState.paused:
-          print("app in paused");
-          FlutterBackgroundService().invoke("setAsForeground");
-          break;
-        case AppLifecycleState.detached:
-          print("app in detached");
-          FlutterBackgroundService().invoke("stopService");
-          break;
-      }
-
-  }
- void getPermissions() async {
-   BluetoothScanController().start();
-  }
-
-  @override
-  void dispose() {
-    _timer.cancel();
-    super.dispose();
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
-        overlays: SystemUiOverlay.values);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        width: double.infinity,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Colors.blue, Colors.deepPurple],
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-          ),
-        ),
-        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Text(
-            'Smart Blanket',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 40,
-              fontFamily: GoogleFonts.roboto().fontFamily,
-            ),
-          ),
-        ]),
-      ),
-    );
-  }
-}
-
-```
-
-## Write a widget test for our class
-This test verify if the Scaffold, Column and Container are loaded, and also tests whether the gradient was executed correctly.
-```ruby
-import 'package:flutter/material.dart';
-import 'package:smart_blanket/utils/widgets/notification_count.dart';
-import 'package:smart_blanket/views/splash_screen.dart';
-import 'package:flutter_test/flutter_test.dart';
-
-void main() {
-    testWidgets('SplashScreen UI Tests', (WidgetTester tester) async {
-      await tester.pumpWidget(MaterialApp(
-          home: SplashScreen(
-        notificationCountProvider: NotificationCountProvider(),
-      )));
-
-      //await Future.delayed(Duration(seconds: 3)); // Wait for the splash screen to finish loading
-
-      await tester.pumpAndSettle();
-
-      // Load Start Widgets Test
-      expect(find.text('Smart Blanket'), findsOneWidget);
-      expect(find.byType(Scaffold), findsOneWidget);
-      expect(find.byType(Container), findsOneWidget);
-      expect(find.byType(Column), findsOneWidget);
-
-      // Gradient Container Test
-      final container = tester.widget<Container>(find.byType(Container));
-      expect(container.decoration, isA<Decoration>());
-      final gradient = (container.decoration as BoxDecoration).gradient;
-      expect(gradient, isNotNull);
-
-      //White Text "SmartBlanke" Test
-      final text = tester.widget<Text>(find.text('Smart Blanket'));
-      expect(text.style?.color, equals(Colors.white));
-    });
-}
-
-```
-
 # Examples - IntegrationTesting - (AM2R)
 ## Add integration dependencies to pubspec.yml 
 
@@ -542,16 +390,12 @@ Go to Run > Start Debugging. You can also press the appropriate keyboard shortcu
 
 
 
-# Unit and Widgets tests Results
-## What expect from terminal while executing Unit and Widgets tests:
+# Unit tests Results
+## What expect from terminal while executing Unit tests:
 ### Unit Testing:
 ![UnitTestResults](https://github.com/Polomba/TripeirosEstate/assets/73592308/4d4d2b34-c6b4-4213-8e30-448e13b26314)
 
-### Widget Testing:
-![WidgetTestResult](https://github.com/Polomba/TripeirosEstate/assets/73592308/dfc427c5-a211-4831-97ce-1a8bba1c8f5b)
-
 #### If the tests after execution have no errors, this means that everything expected is loaded, it will be marked with a certain.
-
 
 # Integration tests Results
 #### Unlike unit and widgets tests, integrations tests test a large part of the application at once, but to do this it is necessary to have an emulator or a device ready to run the app in test mode as you can see in the following video:
