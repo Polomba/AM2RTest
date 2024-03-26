@@ -18,10 +18,10 @@ void main() {
 
       expect(find.byType(BackButton), findsOneWidget);
 
-      await tester.pumpAndSettle(Duration(seconds: 1)); // Wait for
+      await tester.pumpAndSettle(Duration(seconds: 1));
     });
 
-    testWidgets('Removing from favorites triggers UI update',
+    testWidgets('Insert and remove Routes from favorites triggers UI update',
         (WidgetTester tester) async {
       final List<RouteModel> favoriteRoutes = [
         RouteModel(
