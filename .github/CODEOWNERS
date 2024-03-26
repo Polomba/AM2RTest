@@ -1,0 +1,21 @@
+# ------ Global ------
+* @CENTITVC/codeowners @fdsilva-centi
+
+# ------ Firmware folder ------
+/Firmware/ @CENTITVC/firmware-reviewers
+
+# ------ Hardware folder ------
+/Hardware/ @CENTITVC/hardware-reviewers
+
+# ------ Software folder ------
+# Global software owners
+/Software/ @CENTITVC/software-reviewers
+
+# Software backend folder
+/Software/Server/Backend/ @CENTITVC/software-backend-reviews
+
+# Software frontend folder
+/Software/Server/Frontend/ @CENTITVC/software-frontend-reviewers
+
+# Software application folder
+/Software/Application/ @CENTITVC/software-application-reviewers

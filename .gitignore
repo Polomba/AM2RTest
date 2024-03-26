@@ -1,0 +1,251 @@
+#################################################################################
+# Global                                                                        #
+#################################################################################
+# MAC Files
+*.DS_Store
+
+
+#################################################################################
+# [Dd]ocuments ignore files - in relation to root folder                        #
+#################################################################################
+# Office Temp Files
+/**/[Dd]ocuments/~$*.docx
+/**/[Dd]ocuments/~$*.xlsx
+/**/[Dd]ocuments/~*.tmp
+
+
+#################################################################################
+# [Ff]irmware ignore files - in relation to root folder                         #
+#################################################################################
+# Code Composer Studio
+/[Ff]irmware/**/RAM/
+
+# ST Visual Develop
+/[Ff]irmware/**/Debug/*
+/[Ff]irmware/**/*_Programmer/
+/[Ff]irmware/**/Release/*
+/[Ff]irmware/**/*.spy
+/[Ff]irmware/**/*.pdb
+/[Ff]irmware/**/*.wdb
+#/[Ff]irmware/**/*.dep
+#/[Ff]irmware/**/*.stp
+#/[Ff]irmware/**/*.stw
+#/[Ff]irmware/**/*.wed
+
+# MPLAB
+/[Ff]irmware/**/*.X/build/
+/[Ff]irmware/**/*.X/debug/*
+/[Ff]irmware/**/*.X/dist/**/*.*
+/[Ff]irmware/**/*.X/nbproject/private/
+/[Ff]irmware/**/*.X/nbproject/Makefile-*
+/[Ff]irmware/**/*.X/nbproject/Package-*
+/[Ff]irmware/**/*.X/nbproject/.*.xml~
+/[Ff]irmware/**/*.X/.generated_files/
+
+# SEGGER Embedded Studio for ARM
+/[Ff]irmware/**/Output/**/*.*
+/[Ff]irmware/**/*.jlink
+/[Ff]irmware/**/jlink*
+/[Ff]irmware/**/*.eww
+/[Ff]irmware/**/*.emSession
+
+# TrueSTUDIO
+    # Object files
+/[Ff]irmware/**/*.o
+/[Ff]irmware/**/*.ko
+/[Ff]irmware/**/*.obj
+/[Ff]irmware/**/*.elf
+/[Ff]irmware/**/*.elf.launch
+    # Precompiled Headers
+/[Ff]irmware/**/*.gch
+/[Ff]irmware/**/*.pch
+    # Libraries
+/[Ff]irmware/**/*.lib
+/[Ff]irmware/**/*.a
+/[Ff]irmware/**/*.la
+/[Ff]irmware/**/*.lo
+    # Shared objects (inc. Windows DLLs)
+/[Ff]irmware/**/*.dll
+/[Ff]irmware/**/*.so
+/[Ff]irmware/**/*.so.*
+/[Ff]irmware/**/*.dylib
+    # Executables
+/[Ff]irmware/**/*.out
+/[Ff]irmware/**/*.app
+/[Ff]irmware/**/*.i*86
+/[Ff]irmware/**/*.x86_64
+    # Debug files
+/[Ff]irmware/**/*.dSYM/
+/[Ff]irmware/**/*.su
+/[Ff]irmware/**/Debug/*
+    # Folders
+/[Ff]irmware/**/.settings/
+
+# Microchip Studio  
+	# Build Directories
+/[Ff]irmware/**/[Dd]ebug/*
+/[Ff]irmware/**/[Rr]elease/*
+/[Ff]irmware/**/modules/
+/[Ff]irmware/**/doxygen/
+/[Ff]irmware/**/.atmel-start-backup/
+
+# DAVE 
+	# Build Directories
+/[Ff]irmware/**/[Dd]ebug/*
+/[Ff]irmware/**/[Rr]elease/*
+/[Ff]irmware/**/.settings/
+/[Ff]irmware/**/APPsVersionUpgradationReport*.html
+/[Ff]irmware/**/solver.bak
+/[Ff]irmware/**/solver.log
+/[Ff]irmware/**/*.wspx
+	# Build Results
+/[Ff]irmware/**/*.d
+/[Ff]irmware/**/*.eep
+/[Ff]irmware/**/*.map
+/[Ff]irmware/**/*.srec
+	# Doxygen
+/[Ff]irmware/**/*.dox
+	# User Specific Files
+/[Ff]irmware/**/*.atsuo
+
+# Simplicity Studio
+	# Build directories & Workspace Directories
+/[Ff]irmware/**/.browser/
+/[Ff]irmware/**/.metadata/
+/[Ff]irmware/**/.settings/
+/[Ff]irmware/**/.uceditor/
+/[Ff]irmware/**/.trash/
+/[Ff]irmware/**/.pdm/
+/[Ff]irmware/**/GNU ARM v*/*
+
+# Zephyr
+/[Ff]irmware/**/*.cmd
+/[Ff]irmware/**/*.log
+/[Ff]irmware/**/*.pyc
+/[Ff]irmware/**/*.swp
+/[Ff]irmware/**/*.swo
+
+
+#################################################################################
+#Firmware exceptions                                                            #
+#################################################################################
+# ARM compiled library files
+!/[Ff]irmware/**/CMSIS/**/*.a
+
+# Microchip Studio 
+    # Add qtouch files 
+!/[Ff]irmware/**/qtouch/**
+    # Add hex
+!/[Ff]irmware/**/[Dd]ebug/**/*.hex
+!/[Ff]irmware/**/[Rr]elease/**/*.hex
+
+# SES
+    # Add all hex contained inside of output folders
+!/[Ff]irmware/**/Output/**/Exe/*.hex
+
+# MPLAB
+!/[Ff]irmware/**/*.X/dist/**/*.hex
+
+# Simplicity studio
+!/[Ff]irmware/**/GNU ARM v*/*.hex
+!/[Ff]irmware/**/GNU ARM v*/*.s37
+
+#CeNTI library
+!/[Ff]irmware/**/CeNTI/**
+
+
+#################################################################################
+# [Hh]ardware ignore files - in relation to root folder                         #
+#################################################################################
+# Eagle production
+/[Hh]ardware/**/*.b#*
+/[Hh]ardware/**/*.s#*
+
+# Circuit Studio
+/[Hh]ardware/**/__Previews/
+/[Hh]ardware/**/History/
+/[Hh]ardware/**/*.*Previews
+/[Hh]ardware/**/*.LOG
+/[Hh]ardware/**/*.htm
+/[Hh]ardware/**/Outputs/*
+![Hh]ardware/**/Outputs/*.pdf
+![Hh]ardware/**/Outputs/*.zip
+![Hh]ardware/**/BOM/
+![Hh]ardware/**/BOM/*.xl*
+/[Hh]ardware/**/Logs/
+/[Hh]ardware/**/.svn/
+/[Hh]ardware/**/*.PrjPcbStructure
+/[Hh]ardware/**/*.PcbLib
+/[Hh]ardware/**/*.SchLib
+/[Hh]ardware/**/*.OutJob
+/[Hh]ardware/**/BOM/*.OutputStatus
+
+
+#################################################################################
+# [Ss]oftware ignore files - in relation to root folder                         #
+#################################################################################
+# Backend & Frontend
+/[Ss]oftware/**/**/node_modules
+/[Ss]oftware/**/backend/backend-server-logs
+/[Ss]oftware/**/**/mongodb
+
+# Unity
+/[Ss]oftware/**/Unity/[Aa]ssets/AssetStoreTools*
+/[Ss]oftware/**/Unity/*.avi
+/[Ss]oftware/**/Unity/[Bb]uild/
+/[Ss]oftware/**/Unity/[Ll]ibrary/
+/[Ss]oftware/**/Unity/[Ll]ocal[Cc]ache/
+/[Ss]oftware/**/Unity/[Oo]bj/
+/[Ss]oftware/**/Unity/[Tt]emp/
+/[Ss]oftware/**/Unity/[Uu]nityGenerated/
+	# File on crash reports
+/[Ss]oftware/**/Unity/sysinfo.txt
+	# Unity3D generated meta files
+/[Ss]oftware/**/Unity/*.pidb.meta
+	# VS/MD solution and project files
+/[Ss]oftware/**/Unity/[Ee]xportedObj/
+/[Ss]oftware/**/Unity/*.booproj
+/[Ss]oftware/**/Unity/*.csproj
+/[Ss]oftware/**/Unity/*.sln
+/[Ss]oftware/**/Unity/*.suo
+/[Ss]oftware/**/Unity/*.svd
+/[Ss]oftware/**/Unity/*.unityproj
+/[Ss]oftware/**/Unity/*.user
+/[Ss]oftware/**/Unity/*.userprefs
+/[Ss]oftware/**/Unity/*.pidb
+/[Ss]oftware/**/Unity/.DS_Store
+	# OS generated
+/[Ss]oftware/**/Unity/.DS_Store
+/[Ss]oftware/**/Unity/.DS_Store?
+/[Ss]oftware/**/Unity/._*
+/[Ss]oftware/**/Unity/.Spotlight-V100
+/[Ss]oftware/**/Unity/.Trashes
+/[Ss]oftware/**/Unity/Icon?
+/[Ss]oftware/**/Unity/ehthumbs.db
+/[Ss]oftware/**/Unity/Thumbs.db
+
+# Android Studio
+/[Ss]oftware/**/Android/*.iml
+/[Ss]oftware/**/Android/.gradle
+/[Ss]oftware/**/Android/local.properties
+/[Ss]oftware/**/Android/.idea/caches/build_file_checksums.ser
+/[Ss]oftware/**/Android/.idea/libraries
+/[Ss]oftware/**/Android/.idea/modules.xml
+/[Ss]oftware/**/Android/.idea/workspace.xml
+/[Ss]oftware/**/Android/.DS_Store
+/[Ss]oftware/**/Android/build
+/[Ss]oftware/**/Android/captures
+/[Ss]oftware/**/Android/.externalNativeBuild
+/[Ss]oftware/**/Android/.idea/shelf/
+/[Ss]oftware/**/Android/.idea/workspace.xml/
+# Qt creator
+/[Ss]oftware/**/Debug/
+/[Ss]oftware/**/Release/
+/[Ss]oftware/**/*.o
+/[Ss]oftware/**/*build-*
+/[Ss]oftware/**/*.pro.user
+/[Ss]oftware/**/*.pro.user.*
+/[Ss]oftware/**/.qmake.stash
+/[Ss]oftware/**/*_qmlcache.qrc
+/[Ss]oftware/**/qrc_*.cpp
+/[Ss]oftware/**/moc_*.cpp
